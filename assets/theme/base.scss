@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  src: url(../fonts/inter/Inter.var.woff2) format("woff2")
+}
+
+@font-face {
+  font-family: nationale;
+  font-display: fallback;
+  src: url(../fonts/nationale/nationale-regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: nationale;
+  font-weight: 600;
+  font-display: fallback;
+  src: url(../fonts/nationale/nationale-demibold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: nationale;
+  font-weight: 700;
+  font-display: fallback;
+  src: url(../fonts/nationale/nationale-bold.woff2) format("woff2");
+}
+
+.xx {color: red}
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "../style.scss";
+

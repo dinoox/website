@@ -1,15 +1,15 @@
 <template>
   <div class="position-relative w-100 vh-100">
     <div id="canvas" class="w-100 h-100">
-      <canvas />
+      <canvas/>
     </div>
     <div class="position-absolute d-flex flex-column justify-content-center"
-      style="left: 5%; top: 6%; max-width: 685px;">
-      <h1 class="title animate__animated animate__rollIn" style="font-size: 5rem;">
+         style="left: 5%; top: 6%; max-width: 685px;">
+      <h1 class="title animate__animated animate__rollIn" style="font-size: 5rem; line-height: 1.04">
         The Personal Website of Dinoox.
       </h1>
       <div class="animate__animated animate__fadeIn"
-        style="line-height: 1.59; font-size: 1.333rem; font-weight: 260; letter-spacing: -0.007326rem; margin-top: 1.5rem;">
+           style="line-height: 1.59; font-size: 1.333rem; font-weight: 260; letter-spacing: -0.007326rem; margin-top: 1.5rem;">
         CodePen is the best place to build, test, and discover front-end code. CodePen is a social development
         environment for front-end designers and developers. Build and deploy a website, show off your work, build test
         cases to learn and debug, and find inspiration.
@@ -17,13 +17,13 @@
     </div>
 
     <div class="position-absolute d-flex align-item-center animate__animated animate__fadeInRight"
-      style="right: 5%; top: 5%">
-      <div class="d-flex align-item-center guide" style="margin-right: 6rem">
+         style="right: 5%; top: 5%; z-index: 9;">
+      <div class="index d-flex align-item-center">
         <span>Resume</span>
         <span>Blogs</span>
         <span>Repo</span>
       </div>
-      <div class="logo">Dinoox</div>
+      <!--      <div class="logo">Dinoox</div>-->
     </div>
     <EffectFog/>
   </div>
@@ -31,14 +31,21 @@
 </template>
 
 <style>
-.guide {
+.index {
   font-size: 17px;
+  /*margin-right: 6rem;*/
 }
 
-.guide span {
+.index span {
+  opacity: .5;
+  cursor: pointer;
   margin: 0 2.5rem;
   align-self: center;
-  cursor: pointer;
+  transition: all .5s !important;
+}
+
+.index span:hover {
+  opacity: 1;
 }
 
 .logo {
@@ -59,9 +66,8 @@
 <script>
 import gsap from "gsap"
 import * as THREE from 'three';
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
-import Stats from 'three/examples/jsm/libs/stats.module.js';
+import {FontLoader} from 'three/examples/jsm/loaders/FontLoader.js';
+import {TextGeometry} from 'three/examples/jsm/geometries/TextGeometry.js';
 
 
 export default {
@@ -72,7 +78,7 @@ export default {
   methods: {
     initThree() {
 
-      let stats, hex;
+      let hex;
 
       let camera, cameraTarget, scene, renderer;
 
@@ -80,19 +86,17 @@ export default {
 
       let text = 'Dinoox',
 
-        bevelEnabled = true,
+          font = undefined,
 
-        font = undefined,
-
-        fontName = 'optimer', // helvetiker, optimer, gentilis, droid sans, droid serif
-        fontWeight = 'bold'; // normal bold
+          fontName = 'optimer', // helvetiker, optimer, gentilis, droid sans, droid serif
+          fontWeight = 'bold'; // normal bold
 
       const height = 20,
-        size = 70,
-        hover = 30,
-        curveSegments = 4,
-        bevelThickness = 2,
-        bevelSize = 1.5;
+          size = 70,
+          hover = 30,
+          curveSegments = 4,
+          bevelThickness = 2,
+          bevelSize = 1.5;
 
       const mirror = true;
 
@@ -105,10 +109,8 @@ export default {
       };
 
       const weightMap = {
-
         'regular': 0,
         'bold': 1
-
       };
 
       const mouse = {
@@ -123,7 +125,6 @@ export default {
       for (const i in weightMap) reverseWeightMap[weightMap[i]] = i;
 
       let targetRotation = 0;
-      let windowHalfX = window.innerWidth / 2;
 
       init();
       animate();
@@ -143,11 +144,9 @@ export default {
         cameraTarget = new THREE.Vector3(0, 150, 0);
 
         // SCENE
-
         scene = new THREE.Scene();
 
         // LIGHTS
-
         const dirLight = new THREE.DirectionalLight(0xffffff, 0.125);
         dirLight.position.set(0, 0, 1).normalize();
         scene.add(dirLight);
@@ -160,8 +159,8 @@ export default {
         hex = decimalToHex(pointLight.color.getHex());
 
         materials = [
-          new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true }), // front
-          new THREE.MeshPhongMaterial({ color: 0xffffff }) // side
+          new THREE.MeshPhongMaterial({color: 0xffffff, flatShading: true}), // front
+          new THREE.MeshPhongMaterial({color: 0xffffff}) // side
         ];
 
         group = new THREE.Group();
@@ -172,16 +171,16 @@ export default {
         loadFont();
 
         const plane = new THREE.Mesh(
-          new THREE.PlaneGeometry(10000, 10000),
-          new THREE.MeshBasicMaterial({ color: 0x000000, opacity: 0.6, transparent: true })
+            new THREE.PlaneGeometry(10000, 10000),
+            new THREE.MeshBasicMaterial({color: 0x000000, opacity: 0.6, transparent: true})
         );
         plane.position.y = 100;
-        plane.rotation.x = - Math.PI / 2;
+        plane.rotation.x = -Math.PI / 2;
         scene.add(plane);
 
         // stars
         const starGeometry = new THREE.BufferGeometry()
-        const starMaterial = new THREE.PointsMaterial({ color: 0xffffff })
+        const starMaterial = new THREE.PointsMaterial({color: 0xffffff})
         const starVertices = []
         for (let i = 0; i < 10000; i++) {
           const x = (Math.random() - 0.5) * 1500
@@ -195,29 +194,22 @@ export default {
 
         // RENDERER
 
-        renderer = new THREE.WebGLRenderer({ antialias: true, canvas: document.querySelector('canvas') });
+        renderer = new THREE.WebGLRenderer({antialias: true, canvas: document.querySelector('canvas')});
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
         // STATS
 
-
-
-
-
         addEventListener('mousemove', (event) => {
           mouse.x = (event.clientX / innerWidth) * 2 - 1
-          mouse.y = - (event.clientY / innerWidth) * 2 + 1
+          mouse.y = -(event.clientY / innerWidth) * 2 + 1
         })
 
-        // 
-        stats = new Stats();
         // EVENTS
         window.addEventListener('resize', onWindowResize);
 
       }
 
       function onWindowResize() {
-        windowHalfX = window.innerWidth / 2;
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -228,13 +220,9 @@ export default {
       function loadFont() {
         const loader = new FontLoader();
         loader.load('fonts/' + fontName + '_' + fontWeight + '.typeface.json', function (response) {
-
           font = response;
-
           refreshText();
-
         });
-
       }
 
       function createText() {
@@ -247,19 +235,17 @@ export default {
 
           bevelThickness: bevelThickness,
           bevelSize: bevelSize,
-          bevelEnabled: bevelEnabled
+          bevelEnabled: true
 
         });
 
         textGeo.computeBoundingBox();
 
-        const centerOffset = - 0.5 * (textGeo.boundingBox.max.x - textGeo.boundingBox.min.x);
+        const centerOffset = -0.5 * (textGeo.boundingBox.max.x - textGeo.boundingBox.min.x);
 
         textMesh1 = new THREE.Mesh(textGeo, materials);
 
-        textMesh1.position.x = centerOffset;
-        textMesh1.position.y = hover;
-        textMesh1.position.z = 0;
+        textMesh1.position.set(centerOffset, hover, 0);
 
         textMesh1.rotation.x = 0;
         textMesh1.rotation.y = Math.PI * 2;
@@ -271,7 +257,7 @@ export default {
           textMesh2 = new THREE.Mesh(textGeo, materials);
 
           textMesh2.position.x = centerOffset;
-          textMesh2.position.y = - hover;
+          textMesh2.position.y = -hover;
           textMesh2.position.z = height;
 
           textMesh2.rotation.x = Math.PI;
@@ -280,47 +266,32 @@ export default {
           group.add(textMesh2);
 
         }
-
       }
 
       function refreshText() {
-
         group.remove(textMesh1);
         if (mirror) group.remove(textMesh2);
-
         if (!text) return;
-
         createText();
-
       }
 
-      //
-
       function animate() {
-
         requestAnimationFrame(animate);
-
         render();
-        stats.update();
-
       }
 
       function render() {
-
         group.rotation.y += (targetRotation - group.rotation.y) * 0.05;
-
         camera.lookAt(cameraTarget);
         gsap.to(group.rotation, {
-          x: - mouse.y * 0.15,
+          x: -mouse.y * 0.15,
           y: mouse.x * 0.3,
           duration: 3
         })
 
         renderer.clear();
         renderer.render(scene, camera);
-
       }
-
     },
   },
 }

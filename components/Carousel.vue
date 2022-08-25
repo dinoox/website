@@ -41,6 +41,7 @@
       </div>
       <div id="ground"></div>
     </div>
+    <EffectBroadcast></EffectBroadcast>
   </div>
 </template>
 

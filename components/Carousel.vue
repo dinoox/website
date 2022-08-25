@@ -4,36 +4,36 @@
       <div id="spin-container">
         <!-- Add your images (or video) here -->
         <img
-            src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="">
+          src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="">
         <img
-            src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="">
+          src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="">
         <img
-            src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="">
+          src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="">
         <img
-            src="https://images.pexels.com/photos/1758144/pexels-photo-1758144.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="">
+          src="https://images.pexels.com/photos/1758144/pexels-photo-1758144.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="">
         <img
-            src="https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="">
+          src="https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="">
         <img
-            src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="">
+          src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="">
 
         <!-- Example image with link -->
         <a target="_blank" href="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg">
           <img
-              src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt="">
+            src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="">
         </a>
 
         <!-- Example add video  -->
         <video controls autoplay="autoplay" loop>
           <source
-              src="https://player.vimeo.com/external/322244668.sd.mp4?s=338c48ac2dfcb1d4c0689968b5baf94eee6ca0c1&profile_id=165&oauth2_token_id=57447761"
-              type="video/mp4">
+            src="https://player.vimeo.com/external/322244668.sd.mp4?s=338c48ac2dfcb1d4c0689968b5baf94eee6ca0c1&profile_id=165&oauth2_token_id=57447761"
+            type="video/mp4">
         </video>
 
         <!-- Text at center of ground -->
@@ -52,7 +52,8 @@
   transform-style: preserve-3d;
 }
 
-#drag-container, #spin-container {
+#drag-container,
+#spin-container {
   position: relative;
   display: flex;
   margin: auto;
@@ -60,7 +61,8 @@
   transform: rotateX(-10deg);
 }
 
-#drag-container img, #drag-container video {
+#drag-container img,
+#drag-container video {
   transform-style: preserve-3d;
   position: absolute;
   left: 0;
@@ -74,7 +76,8 @@
   -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
 }
 
-#drag-container img:hover, #drag-container video:hover {
+#drag-container img:hover,
+#drag-container video:hover {
   box-shadow: 0 0 15px #fffd;
   -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
 }
@@ -101,6 +104,7 @@
   from {
     transform: rotateY(0deg);
   }
+
   to {
     transform: rotateY(360deg);
   }
@@ -110,6 +114,7 @@
   from {
     transform: rotateY(360deg);
   }
+
   to {
     transform: rotateY(0deg);
   }
@@ -122,19 +127,19 @@ export default {
   mounted() {
 
     let radius = 240,
-        autoRotate = true,
-        rotateSpeed = -60
-    
+      autoRotate = true,
+      rotateSpeed = -60
+
     let imgWidth = 120,
-        imgHeight = 170
+      imgHeight = 170
 
     setTimeout(init, 1000)
 
     let drag = document.getElementById('drag-container'),
-        spin = document.getElementById('spin-container')
+      spin = document.getElementById('spin-container')
 
     let images = spin.getElementsByTagName('img'),
-        videos = spin.getElementsByTagName('video')
+      videos = spin.getElementsByTagName('video')
 
     let elements = [...images, ...videos];
 
@@ -167,9 +172,9 @@ export default {
     }
 
     let desX = 0,
-        desY = 0,
-        tX = 0,
-        tY = 10;
+      desY = 0,
+      tX = 0,
+      tY = 10;
 
     // auto spin
     if (autoRotate) {
@@ -182,13 +187,13 @@ export default {
     document.onpointerdown = function (e) {
       clearInterval(drag.timer);
       let sX = e.clientX,
-          sY = e.clientY;
+        sY = e.clientY;
 
       console.log(this)
 
       this.onpointermove = function (e) {
         let nX = e.clientX,
-            nY = e.clientY;
+          nY = e.clientY;
         desX = nX - sX;
         desY = nY - sY;
         tX += desX * 0.1;

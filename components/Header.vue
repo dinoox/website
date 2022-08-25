@@ -1,15 +1,15 @@
 <template>
   <div class="position-relative w-100 vh-100">
     <div id="canvas" class="w-100 h-100">
-      <canvas/>
+      <canvas />
     </div>
     <div class="position-absolute d-flex flex-column justify-content-center"
-         style="left: 5%; top: 6%; max-width: 685px;">
+      style="left: 5%; top: 6%; max-width: 685px;">
       <h1 class="title animate__animated animate__rollIn" style="font-size: 5rem; line-height: 1.04">
         The Personal Website of Dinoox.
       </h1>
       <div class="animate__animated animate__fadeIn"
-           style="line-height: 1.59; font-size: 1.333rem; font-weight: 260; letter-spacing: -0.007326rem; margin-top: 1.5rem;">
+        style="line-height: 1.59; font-size: 1.333rem; font-weight: 260; letter-spacing: -0.007326rem; margin-top: 1.5rem;">
         CodePen is the best place to build, test, and discover front-end code. CodePen is a social development
         environment for front-end designers and developers. Build and deploy a website, show off your work, build test
         cases to learn and debug, and find inspiration.
@@ -17,7 +17,7 @@
     </div>
 
     <div class="position-absolute d-flex align-item-center animate__animated animate__fadeInRight"
-         style="right: 5%; top: 5%; z-index: 9;">
+      style="right: 5%; top: 5%; z-index: 9;">
       <div class="index d-flex align-item-center">
         <span>Resume</span>
         <span>Blogs</span>
@@ -25,7 +25,7 @@
       </div>
       <!--      <div class="logo">Dinoox</div>-->
     </div>
-    <EffectFog/>
+    <EffectFog />
   </div>
 
 </template>
@@ -66,8 +66,8 @@
 <script>
 import gsap from "gsap"
 import * as THREE from 'three';
-import {FontLoader} from 'three/examples/jsm/loaders/FontLoader.js';
-import {TextGeometry} from 'three/examples/jsm/geometries/TextGeometry.js';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 
 
 export default {
@@ -86,17 +86,17 @@ export default {
 
       let text = 'Dinoox',
 
-          font = undefined,
+        font = undefined,
 
-          fontName = 'optimer', // helvetiker, optimer, gentilis, droid sans, droid serif
-          fontWeight = 'bold'; // normal bold
+        fontName = 'optimer', // helvetiker, optimer, gentilis, droid sans, droid serif
+        fontWeight = 'bold'; // normal bold
 
       const height = 20,
-          size = 70,
-          hover = 30,
-          curveSegments = 4,
-          bevelThickness = 2,
-          bevelSize = 1.5;
+        size = 70,
+        hover = 30,
+        curveSegments = 4,
+        bevelThickness = 2,
+        bevelSize = 1.5;
 
       const mirror = true;
 
@@ -159,8 +159,8 @@ export default {
         hex = decimalToHex(pointLight.color.getHex());
 
         materials = [
-          new THREE.MeshPhongMaterial({color: 0xffffff, flatShading: true}), // front
-          new THREE.MeshPhongMaterial({color: 0xffffff}) // side
+          new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true }), // front
+          new THREE.MeshPhongMaterial({ color: 0xffffff }) // side
         ];
 
         group = new THREE.Group();
@@ -171,8 +171,8 @@ export default {
         loadFont();
 
         const plane = new THREE.Mesh(
-            new THREE.PlaneGeometry(10000, 10000),
-            new THREE.MeshBasicMaterial({color: 0x000000, opacity: 0.6, transparent: true})
+          new THREE.PlaneGeometry(10000, 10000),
+          new THREE.MeshBasicMaterial({ color: 0x000000, opacity: 0.6, transparent: true })
         );
         plane.position.y = 100;
         plane.rotation.x = -Math.PI / 2;
@@ -180,7 +180,7 @@ export default {
 
         // stars
         const starGeometry = new THREE.BufferGeometry()
-        const starMaterial = new THREE.PointsMaterial({color: 0xffffff})
+        const starMaterial = new THREE.PointsMaterial({ color: 0xffffff })
         const starVertices = []
         for (let i = 0; i < 10000; i++) {
           const x = (Math.random() - 0.5) * 1500
@@ -194,7 +194,7 @@ export default {
 
         // RENDERER
 
-        renderer = new THREE.WebGLRenderer({antialias: true, canvas: document.querySelector('canvas')});
+        renderer = new THREE.WebGLRenderer({ antialias: true, canvas: document.querySelector('canvas') });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
         // STATS

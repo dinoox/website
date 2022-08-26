@@ -20,7 +20,7 @@ let arr = [
 ]
 
 let arrs = [arr, [...arr], [...arr], [...arr]]
-let bannerWidth, speed;
+let bannerWidth, speed
 let nodes = []
 
 
@@ -45,7 +45,7 @@ function getMatrix3D(arr) {
 
 function float() {
   for (let i = 1; i <= 4; i++) {
-    let arr = arrs[i - 1];
+    let arr = arrs[i - 1]
     arr[12] <= -bannerWidth ? arr[12] = 3 * bannerWidth : arr[12] -= speed
     nodes[i - 1].style.transform = getMatrix3D(arr)
   }

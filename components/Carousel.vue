@@ -221,10 +221,10 @@ export default {
       return false;
     };
 
-    document.onmousewheel = (e) => {
-      radius += e.wheelDelta / 20 || -e.detail;
-      init(1);
-    };
+    // document.onmousewheel = (e) => {
+    //   radius += e.wheelDelta / 20 || -e.detail;
+    //   init(1);
+    // };
 
   }
 }

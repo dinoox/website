@@ -20,7 +20,7 @@
       style="right: 5%; top: 5%; z-index: 9;">
       <div class="index d-flex align-item-center">
         <span>Resume</span>
-        <span>Blogs</span>
+        <span><a href="#blog-intr">Blogs</a></span>
         <span>Repo</span>
       </div>
       <!--      <div class="logo">Dinoox</div>-->

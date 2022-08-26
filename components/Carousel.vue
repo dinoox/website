@@ -1,5 +1,5 @@
 <template>
-  <div class="magic w-100 vh-100 d-flex overflow-hidden position-relative">
+  <div id="blog-intr" class="magic w-100 vh-100 d-flex overflow-hidden position-relative">
     <div id="drag-container">
       <div id="spin-container">
         <!-- Add your images (or video) here -->

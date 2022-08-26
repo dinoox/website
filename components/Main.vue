@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <HeaderFixed/>
+    <HeaderFixed />
     <EffectFog />
   </div>
 
@@ -144,11 +144,11 @@ export default {
         plane.rotation.x = -Math.PI / 2;
         scene.add(plane);
 
-        // stars
+        // Stars
         const starGeometry = new THREE.BufferGeometry()
         const starMaterial = new THREE.PointsMaterial({ color: 0xffffff })
         const starVertices = []
-        for (let i = 0; i < 10000; i++) {
+        for (let i = 0; i < 6000; i++) {//clear array
           const x = (Math.random() - 0.5) * 1500
           const y = (Math.random() - 0.5) * 1500
           const z = -Math.random() * 1500
@@ -159,7 +159,6 @@ export default {
         scene.add(stars)
 
         // RENDERER
-
         renderer = new THREE.WebGLRenderer({ antialias: true, canvas: document.querySelector('canvas') });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);

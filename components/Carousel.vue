@@ -187,9 +187,7 @@ export default {
     document.onpointerdown = function (e) {
       clearInterval(drag.timer);
       let sX = e.clientX,
-        sY = e.clientY;
-
-      console.log(this)
+        sY = e.clientY
 
       this.onpointermove = function (e) {
         let nX = e.clientX,

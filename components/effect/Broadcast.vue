@@ -1,10 +1,16 @@
 <template>
-  <section class="marquee-header w-100 text-truncate">
-    <div class="banner d-inline-block">
-      &nbsp;Awards — Recognition —
+  <section class="marquee-header w-100 text-truncate position-relative">
+    <div ref="banner1" class="banner d-inline-block">
+      &nbsp;{{ firstWord }} — {{ lastWord }} —
     </div>
-    <div v-for="n in 3" class="banner position-absolute d-inline-block" style="top: 0; left: 0;">
-      &nbsp;Awards — Recognition —
+    <div ref="banner2" class="banner position-absolute d-inline-block" style="top: 0; left: 0;">
+      &nbsp;{{ firstWord }} — {{ lastWord }} —
+    </div>
+    <div ref="banner3" class="banner position-absolute d-inline-block" style="top: 0; left: 0;">
+      &nbsp;{{ firstWord }} — {{ lastWord }} —
+    </div>
+    <div ref="banner4" class="banner position-absolute d-inline-block" style="top: 0; left: 0;">
+      &nbsp;{{ firstWord }} — {{ lastWord }} —
     </div>
   </section>
 </template>
@@ -12,6 +18,15 @@
 <script setup>
 import { onMounted } from 'vue'
 
+const props = defineProps(['firstWord', 'lastWord'])
+const banner1 = ref(null),
+  banner2 = ref(null),
+  banner3 = ref(null),
+  banner4 = ref(null);
+
+
+
+//
 let arr = [
   1, 0, 0, 0,
   0, 1, 0, 0,
@@ -20,20 +35,21 @@ let arr = [
 ]
 
 let arrs = [arr, [...arr], [...arr], [...arr]]
+let banners = [banner1, banner2, banner3, banner4]
 let bannerWidth, speed
 let nodes = []
 
 
 function init() {
-  speed = 3;
-  bannerWidth = document.querySelector('.banner').offsetWidth
+  speed = 1.6;
+  bannerWidth = banner1.value.offsetWidth
   arrs[0][12] = 0
   arrs[1][12] = bannerWidth
   arrs[2][12] = bannerWidth * 2
   arrs[3][12] = bannerWidth * 3
 
   for (let i = 1; i <= 4; i++) {
-    let node = document.querySelector(`.banner:nth-child(${i})`)
+    let node = banners[i - 1].value
     nodes.push(node)
     node.style.transform = getMatrix3D(arrs[i - 1])
   }
@@ -60,9 +76,6 @@ onMounted(() => {
 
 <style scoped>
 .marquee-header {
-  top: 4%;
-  left: 0;
-  position: absolute;
   font-size: 5.5rem;
 }
 </style>

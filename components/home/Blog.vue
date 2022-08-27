@@ -1,4 +1,5 @@
 <template>
+  <EffectBroadcast first-word="Awards" last-word="Recognition" />
   <div id="blog-intr" class="magic w-100 vh-100 d-flex overflow-hidden position-relative">
     <div id="drag-container">
       <div id="spin-container">
@@ -41,7 +42,7 @@
       </div>
       <div id="ground"></div>
     </div>
-    <EffectBroadcast></EffectBroadcast>
+
   </div>
 </template>
 

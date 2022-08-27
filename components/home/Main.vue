@@ -1,4 +1,5 @@
 <template>
+  <HomeHeader />
   <div class="position-relative w-100 vh-100">
     <div id="canvas" class="w-100 h-100">
       <canvas />
@@ -15,10 +16,10 @@
         cases to learn and debug, and find inspiration.
       </div>
     </div>
-
-    <HeaderFixed />
     <EffectFog />
   </div>
+  <HomeBlog />
+  <HomeResume />
 
 </template>
 

@@ -4,7 +4,7 @@
     :style="{ backgroundColor: background }" v-show="headerShow">
     <div class="logo pointer">
       <img :style="{ opacity: isHidden ? 0 : 1 }"
-        src="https://ei.phncdn.com/www-static/images/pornhub_logo_straight.svg" height="36px" width="144px" alt="">
+        src="/img/logo.png" height="36px" width="144px" alt="">
     </div>
     <div class="nav d-flex align-item-center" style="font-size: 17px; font-weight: 250;">
       <span>Resume</span>

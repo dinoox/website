@@ -76,6 +76,11 @@ onMounted(() => {
 
 <style scoped>
 .marquee-header {
-  font-size: 5.5rem;
+  font-size: 5rem;
+  margin: 6.25rem 0;
+}
+
+.banner {
+  padding: 1.25rem 0;
 }
 </style>

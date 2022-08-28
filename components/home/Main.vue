@@ -1,16 +1,17 @@
 <template>
+  <EffectFluid />
   <HomeHeader />
   <div class="position-relative w-100 vh-100">
     <div id="canvas" class="w-100 h-100">
-      <canvas />
+      <canvas id="canvas-bg" style="z-index: -1;"></canvas>
     </div>
     <div class="position-absolute d-flex flex-column justify-content-center"
       style="left: 5%; top: 6%; max-width: 685px;">
-      <h1 class="title animate__animated animate__rollIn" style="font-size: 5rem; line-height: 1.04">
+      <h1 class="title animate__animated animate__rollIn" style="font-size: 70px; line-height: 1.04">
         The Personal Website of Dinoox.
       </h1>
       <div class="animate__animated animate__fadeIn"
-        style="line-height: 1.59; font-size: 1.333rem; font-weight: 260; letter-spacing: -0.007326rem; margin-top: 1.5rem;">
+        style="line-height: 1.59; font-size: 18.662px; font-weight: 260; letter-spacing: -0.007326rem; margin-top: 1.5rem;">
         CodePen is the best place to build, test, and discover front-end code. CodePen is a social development
         environment for front-end designers and developers. Build and deploy a website, show off your work, build test
         cases to learn and debug, and find inspiration.
@@ -160,7 +161,7 @@ export default {
         scene.add(stars)
 
         // RENDERER
-        renderer = new THREE.WebGLRenderer({ antialias: true, canvas: document.querySelector('canvas') });
+        renderer = new THREE.WebGLRenderer({ antialias: true, canvas: document.getElementById('canvas-bg') });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
         // STATS

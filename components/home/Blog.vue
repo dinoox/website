@@ -1,5 +1,5 @@
 <template>
-  <EffectBroadcast first-word="Awards" last-word="Recognition" />
+  <!-- <EffectBroadcast first-word="Awards" last-word="Recognition" /> -->
   <div id="blog-intr" class="magic w-100 vh-100 d-flex overflow-hidden position-relative">
     <div id="drag-container">
       <div id="spin-container">
@@ -33,7 +33,7 @@
         <!-- Example add video  -->
         <video controls autoplay="autoplay" loop>
           <source
-            src="https://player.vimeo.com/external/322244668.sd.mp4?s=338c48ac2dfcb1d4c0689968b5baf94eee6ca0c1&profile_id=165&oauth2_token_id=57447761"
+            src="#"
             type="video/mp4">
         </video>
 
@@ -185,40 +185,41 @@ export default {
 
 
     // setup events
-    document.onpointerdown = function (e) {
-      clearInterval(drag.timer);
-      let sX = e.clientX,
-        sY = e.clientY
+    // document.onpointerdown = function (e) {
+    //   console.log("document.onpointerdown");
+    //   clearInterval(drag.timer);
+    //   let sX = e.clientX,
+    //     sY = e.clientY
 
-      this.onpointermove = function (e) {
-        let nX = e.clientX,
-          nY = e.clientY;
-        desX = nX - sX;
-        desY = nY - sY;
-        tX += desX * 0.1;
-        tY += desY * 0.1;
-        applyTransform(drag);
-        sX = nX;
-        sY = nY;
-      };
+    //   this.onpointermove = function (e) {
+    //     let nX = e.clientX,
+    //       nY = e.clientY;
+    //     desX = nX - sX;  
+    //     desY = nY - sY;
+    //     tX += desX * 0.1;
+    //     tY += desY * 0.1;
+    //     applyTransform(drag);
+    //     sX = nX;
+    //     sY = nY;
+    //   };
 
-      this.onpointerup = function (e) {
-        drag.timer = setInterval(function () {
-          desX *= 0.95;
-          desY *= 0.95;
-          tX += desX * 0.1;
-          tY += desY * 0.1;
-          applyTransform(drag);
-          playSpin(false);
-          if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
-            clearInterval(drag.timer);
-            playSpin(true);
-          }
-        }, 17);
-        this.onpointermove = this.onpointerup = null;
-      };
-      return false;
-    };
+    //   this.onpointerup = function (e) {
+    //     drag.timer = setInterval(function () {
+    //       desX *= 0.95;
+    //       desY *= 0.95;
+    //       tX += desX * 0.1;
+    //       tY += desY * 0.1;
+    //       applyTransform(drag);
+    //       playSpin(false);
+    //       if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+    //         clearInterval(drag.timer);
+    //         playSpin(true);
+    //       }
+    //     }, 17);
+    //     this.onpointermove = this.onpointerup = null;
+    //   };
+    //   return false;
+    // };
 
     // document.onmousewheel = (e) => {
     //   radius += e.wheelDelta / 20 || -e.detail;

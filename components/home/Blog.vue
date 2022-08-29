@@ -5,36 +5,34 @@
       <div id="spin-container">
         <!-- Add your images (or video) here -->
         <img
-          src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
-          alt="">
+          src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          draggable="false" alt="">
         <img
-          src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
-          alt="">
-        <img 
-          src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
-          alt="">
+          src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          draggable="false" alt="">
         <img
-          src="https://images.pexels.com/photos/1758144/pexels-photo-1758144.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
-          alt="">
+          src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          draggable="false" alt="">
         <img
-          src="https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
-          alt="">
+          src="https://images.pexels.com/photos/1758144/pexels-photo-1758144.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          draggable="false" alt="">
         <img
-          src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
-          alt="">
+          src="https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          draggable="false" alt="">
+        <img
+          src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          draggable="false" alt="">
 
         <!-- Example image with link -->
         <a target="_blank" href="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg">
           <img
-            src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
-            alt="">
+            src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            draggable="false" alt="">
         </a>
 
         <!-- Example add video  -->
         <video controls autoplay="autoplay" loop>
-          <source
-            src="#"
-            type="video/mp4">
+          <source src="#" type="video/mp4">
         </video>
 
         <!-- Text at center of ground -->
@@ -194,7 +192,7 @@ export default {
       this.onpointermove = function (e) {
         let nX = e.clientX,
           nY = e.clientY
-        desX = nX - sX;  
+        desX = nX - sX;
         desY = nY - sY;
         tX += desX * 0.1;
         tY += desY * 0.1;
@@ -220,7 +218,7 @@ export default {
       };
       return false;
     });
-   
+
     // document.onmousewheel = (e) => {
     //   radius += e.wheelDelta / 20 || -e.detail;
     //   init(1);

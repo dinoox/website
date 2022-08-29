@@ -1,13 +1,14 @@
 <template>
     <div class="d-flex justify-content-center">
-        <div ref="box" style="transform: translate(0px, 0px); transition: all .5s;" @mousemove="handle" @mouseleave="handleMouseleave">
-            <a href="#" class="readmore-button" style="transform: rotate(45deg);">
+        <div ref="box" style="transform: translate(0px, 0px); transition: all .5s;" @mousemove="handle"
+            @mouseleave="handleMouseleave">
+            <a href="#" class="readmore-button">
                 <i class="readmore-button__outer">
                     <span class="readmore-button__text">
                         <img src="https://advanced.team/assets/img/icons/readmore-text.svg" alt="Read more Awards"
                             draggable="false">
                     </span>
-                    <span class="readmore-button__ico">
+                    <span class="readmore-button__ico" style="transform: rotate(45deg);">
                         <svg width="30" height="40" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M15 40C15 40 15 18.9683 15 -9.53674e-07M15 -9.53674e-07C15 13.7026 1 16.2319 1 16.2319M15 -9.53674e-07C15 13.7026 29 16.2319 29 16.2319"
@@ -27,22 +28,17 @@ function handle(e) {
         y = e.offsetY,
         refX = (x - 90) / 90 * 45,
         refY = (y - 90) / 90 * 45;
-
-    // console.log(e.target);
-
-    console.log(refX, refY);
     box.value.style.transform = `translate(${refX}px, ${refY}px)`
 }
 
-function handleMouseleave(){
-        box.value.style.transform = `translate(${0}px, ${0}px)`
+function handleMouseleave() {
+    box.value.style.transform = `translate(${0}px, ${0}px)`
 }
 </script>
 
 
 <style scoped>
 .readmore-button {
-
     background: transparent;
     border: 0;
     padding: 0;
@@ -83,9 +79,9 @@ function handleMouseleave(){
 }
 
 .readmore-button__outer {
-
     height: 100%;
     position: absolute;
+    pointer-events: none;
     bottom: auto;
     left: 0;
     right: auto;

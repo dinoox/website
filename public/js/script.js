@@ -1415,7 +1415,7 @@ function correctRadius(radius) {
 }
 
 // window.addEventListener('mousedown', e => {
-    // console.log("mousedown");
+// console.log("mousedown");
 
 //     let posX = scaleByPixelRatio(e.offsetX);
 //     let posY = scaleByPixelRatio(e.offsetY);

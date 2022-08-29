@@ -1,9 +1,9 @@
 <template>
   <EffectFluid />
-  <HomeHeader />
+  <CommonHeader />
   <div class="position-relative w-100 vh-100">
     <div id="canvas" class="w-100 h-100">
-      <canvas id="canvas-bg" style="z-index: -1;"></canvas>
+      <canvas id="canvas-bg" style="z-index: -2;"></canvas>
     </div>
     <div class="position-absolute d-flex flex-column justify-content-center"
       style="left: 5%; top: 6%; max-width: 685px;">
@@ -21,7 +21,7 @@
   </div>
   <HomeBlog />
   <HomeResume />
-
+  <CommonFooter />
 </template>
 
 <style>

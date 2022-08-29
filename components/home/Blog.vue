@@ -187,7 +187,6 @@ export default {
 
     //setup events
     document.addEventListener('pointerdown', function (e) {
-      console.log("document.onpointerdown");
       clearInterval(drag.timer);
       let sX = e.clientX,
         sY = e.clientY

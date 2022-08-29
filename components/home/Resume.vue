@@ -23,16 +23,12 @@
     </div>
 </template>
 <style scoped>
-@media (min-width: 1200px) {
-    .intr {
-        font-size: 3.375rem;
-        line-height: 1.1;
-        font-weight: 440;
-        width: 87.5%;
-    }
+.intr {
+    font-size: 3.375rem;
+    line-height: 1.1;
+    font-weight: 440;
+    width: 87.5%;
 }
-
-
 .wrap {
     margin: 0 auto;
     padding: 0 calc(50vw - 480px);

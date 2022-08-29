@@ -82,5 +82,6 @@ onMounted(() => {
 
 .banner {
   padding: 1.25rem 0;
+  will-change: transform;
 }
 </style>

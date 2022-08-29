@@ -5,28 +5,28 @@
       <div id="spin-container">
         <!-- Add your images (or video) here -->
         <img
-          src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
           alt="">
         <img
-          src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
+          alt="">
+        <img 
+          src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
           alt="">
         <img
-          src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          src="https://images.pexels.com/photos/1758144/pexels-photo-1758144.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
           alt="">
         <img
-          src="https://images.pexels.com/photos/1758144/pexels-photo-1758144.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          src="https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
           alt="">
         <img
-          src="https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-          alt="">
-        <img
-          src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
           alt="">
 
         <!-- Example image with link -->
         <a target="_blank" href="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg">
           <img
-            src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" draggable="false"
             alt="">
         </a>
 
@@ -65,6 +65,7 @@
 #drag-container img,
 #drag-container video {
   transform-style: preserve-3d;
+  user-select: none;
   position: absolute;
   left: 0;
   top: 0;
@@ -184,43 +185,43 @@ export default {
     }
 
 
-    // setup events
-    // document.onpointerdown = function (e) {
-    //   console.log("document.onpointerdown");
-    //   clearInterval(drag.timer);
-    //   let sX = e.clientX,
-    //     sY = e.clientY
+    //setup events
+    document.addEventListener('pointerdown', function (e) {
+      console.log("document.onpointerdown");
+      clearInterval(drag.timer);
+      let sX = e.clientX,
+        sY = e.clientY
 
-    //   this.onpointermove = function (e) {
-    //     let nX = e.clientX,
-    //       nY = e.clientY;
-    //     desX = nX - sX;  
-    //     desY = nY - sY;
-    //     tX += desX * 0.1;
-    //     tY += desY * 0.1;
-    //     applyTransform(drag);
-    //     sX = nX;
-    //     sY = nY;
-    //   };
+      this.onpointermove = function (e) {
+        let nX = e.clientX,
+          nY = e.clientY
+        desX = nX - sX;  
+        desY = nY - sY;
+        tX += desX * 0.1;
+        tY += desY * 0.1;
+        applyTransform(drag);
+        sX = nX;
+        sY = nY;
+      };
 
-    //   this.onpointerup = function (e) {
-    //     drag.timer = setInterval(function () {
-    //       desX *= 0.95;
-    //       desY *= 0.95;
-    //       tX += desX * 0.1;
-    //       tY += desY * 0.1;
-    //       applyTransform(drag);
-    //       playSpin(false);
-    //       if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
-    //         clearInterval(drag.timer);
-    //         playSpin(true);
-    //       }
-    //     }, 17);
-    //     this.onpointermove = this.onpointerup = null;
-    //   };
-    //   return false;
-    // };
-
+      this.onpointerup = function (e) {
+        drag.timer = setInterval(function () {
+          desX *= 0.95;
+          desY *= 0.95;
+          tX += desX * 0.1;
+          tY += desY * 0.1;
+          applyTransform(drag);
+          playSpin(false);
+          if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+            clearInterval(drag.timer);
+            playSpin(true);
+          }
+        }, 17);
+        this.onpointermove = this.onpointerup = null;
+      };
+      return false;
+    });
+   
     // document.onmousewheel = (e) => {
     //   radius += e.wheelDelta / 20 || -e.detail;
     //   init(1);

@@ -1,5 +1,8 @@
 <template>
-    <canvas id="bg-canvas"></canvas>
+    <div class="canvas-outer">
+        <canvas id="bg-canvas"></canvas>
+    </div>
+
 </template>
 
 
@@ -1421,31 +1424,29 @@ onMounted(() => {
         return radius;
     }
 
-    canvas.addEventListener('mousedown', e => {
-        console.log("mousedown");
+    // window.addEventListener('mousedown', e => {
+    //     console.log("mousedown");
 
-        let posX = scaleByPixelRatio(e.offsetX);
-        let posY = scaleByPixelRatio(e.offsetY);
-        let pointer = pointers.find(p => p.id == -1);
-        if (pointer == null)
-            pointer = new pointerPrototype();
-        updatePointerDownData(pointer, -1, posX, posY);
-    });
+    //     let posX = scaleByPixelRatio(e.offsetX);
+    //     let posY = scaleByPixelRatio(e.offsetY);
+    //     let pointer = pointers.find(p => p.id == -1);
+    //     if (pointer == null)
+    //         pointer = new pointerPrototype();
+    //     updatePointerDownData(pointer, -1, posX, posY);
+    // });
 
-    canvas.addEventListener('mousemove', e => {
-        console.log("mousemove");
+    window.addEventListener('mousemove', (e) => {
         let pointer = pointers[0];
         // if (!pointer.down) return;
         console.log(e);
-        console.log(e.pageX, e.pageY);
-        let posX = scaleByPixelRatio(e.offsetX);
-        let posY = scaleByPixelRatio(e.offsetY);
+        let posX = scaleByPixelRatio(e.clientX);
+        let posY = scaleByPixelRatio(e.clientY);
         updatePointerMoveData(pointer, posX, posY);
     });
 
-    window.addEventListener('mouseup', () => {
-        updatePointerUpData(pointers[0]);
-    });
+    // window.addEventListener('mouseup', () => {
+    //     updatePointerUpData(pointers[0]);
+    // });
 
     canvas.addEventListener('touchstart', e => {
         e.preventDefault();
@@ -1613,20 +1614,22 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.canvas-outer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
 #bg-canvas {
     position: fixed;
     top: 0;
-    z-index: 999;
     right: auto;
     display: inline-block;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: all;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-text-size-adjust: 100%;
-    box-sizing: border-box;
-    outline: none;
 }
 </style>

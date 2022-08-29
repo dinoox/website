@@ -3,8 +3,8 @@
     class="header w-100 position-fixed justify-content-between align-items-center animate__animated animate__fadeInDown"
     :style="{ backgroundColor: background }" v-show="headerShow">
     <div class="logo pointer">
-      <img :style="{ opacity: isHidden ? 0 : 1 }"
-        src="/img/logo.png" height="36px" width="144px" alt="">
+      <!-- <img :style="{ opacity: isHidden ? 0 : 1 }"
+        src="/img/logo.png" height="36px" width="144px" alt=""> -->
     </div>
     <div class="nav d-flex align-item-center" style="font-size: 17px; font-weight: 250;">
       <span>Resume</span>

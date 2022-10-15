@@ -42,13 +42,9 @@
     </section>
 </template>
 
-<style>
+<style scoped>
 img {
   max-width: 100%;
-}
-
-body {
-  background-color: #000;
 }
 
 .fog {

@@ -37,7 +37,6 @@
             <img src="@/img/fog/fog4.png">
         </div>
         <div class="ag-format-container">
-
         </div>
     </section>
 </template>

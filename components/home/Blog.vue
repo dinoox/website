@@ -1,5 +1,4 @@
 <template>
-  <!-- <EffectBroadcast first-word="Awards" last-word="Recognition" /> -->
   <div id="blog-intr" class="magic w-100 vh-100 d-flex overflow-hidden position-relative">
     <div id="drag-container">
       <div id="spin-container">
@@ -23,16 +22,9 @@
           src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
           draggable="false" alt="">
 
-        <!-- Example image with link -->
-        <a target="_blank" href="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg">
-          <img
-            src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            draggable="false" alt="">
-        </a>
-
         <!-- Example add video  -->
         <video controls autoplay="autoplay" loop>
-          <source src="#" type="video/mp4">
+          <source src="https://player.vimeo.com/external/322244668.sd.mp4?s=338c48ac2dfcb1d4c0689968b5baf94eee6ca0c1&profile_id=165&oauth2_token_id=57447761" type="video/mp4">
         </video>
 
         <!-- Text at center of ground -->
@@ -118,6 +110,12 @@
   to {
     transform: rotateY(0deg);
   }
+}
+</style>
+
+<style scoped>
+img {
+  cursor: pointer;
 }
 </style>
 

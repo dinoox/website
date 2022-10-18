@@ -1,7 +1,7 @@
 <template>
   <EffectFluid/>
   <CommonHeader/>
-  <div class="position-relative w-100 vh-100">
+  <div class="position-relative w-100">
     <div id="canvas" class="w-100 h-100">
       <canvas id="canvas-bg" style="z-index: -2;"></canvas>
     </div>
@@ -17,7 +17,7 @@
         cases to learn and debug, and find inspiration.
       </div>
     </div>
-        <EffectFog />
+    <EffectFog />
   </div>
   <HomeBlog/>
   <HomeResume/>
@@ -43,7 +43,7 @@ export default {
   }),
   mounted() {
     this.initThree()
-    addEventListener('mousemove', e => this.pointLight.position.set(e.clientX, e.clientY, 200))
+    addEventListener('mousemove', e => this.pointLight.position.set(e.clientX - (e.clientX/2), e.clientY- (e.clientY/2), 200))
   },
   methods: {
     initThree() {
@@ -56,9 +56,9 @@ export default {
         scene = new THREE.Scene()
 
         // light
-        const ambientLight = new THREE.AmbientLight(0xcccccc, 0.4)
+        const ambientLight = new THREE.AmbientLight(0xcccccc, 0.3)
         const pointLight = new THREE.PointLight(0xffffff, 1)
-        pointLight.position.set(0, 0, 200)
+        pointLight.position.set(0, 0, 0)
         this.pointLight = pointLight
 
         scene.add(ambientLight, pointLight)

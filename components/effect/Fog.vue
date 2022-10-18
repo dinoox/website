@@ -42,6 +42,11 @@
     </section>
 </template>
 
+<style>
+body {
+  background-color: black;
+}
+</style>
 <style scoped>
 img {
   max-width: 100%;
@@ -54,6 +59,7 @@ img {
   right: 0;
   bottom: 0;
 }
+
 
 .fog1 {
   z-index: -1;

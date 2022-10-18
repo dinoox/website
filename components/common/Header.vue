@@ -51,12 +51,12 @@ let headerShow = ref(true)
 let background = ref(transparent)
 
 
-const isHidden = computed(() => {
-  return background.value == transparent ? true : false
-})
+const isHidden = computed(() =>
+   background.value === transparent
+)
 
 onMounted(() => {
-  addEventListener('mousewheel', (e) => headerShow.value = e.wheelDelta < 0 ? false : true)
+  addEventListener('mousewheel', (e) => headerShow.value = e.wheelDelta >= 0)
   addEventListener('scroll', () => background.value = window.pageYOffset > 500 ? back : transparent)
 })
 

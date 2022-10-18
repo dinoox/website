@@ -21,6 +21,7 @@
   </div>
   <HomeBlog/>
   <HomeResume/>
+  <HomeTool/>
   <CommonFooter/>
 </template>
 

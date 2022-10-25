@@ -41,11 +41,6 @@
     </section>
 </template>
 
-<style>
-body {
-  background-color: black;
-}
-</style>
 <style scoped>
 img {
   max-width: 100%;

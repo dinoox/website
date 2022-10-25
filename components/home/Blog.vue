@@ -3,9 +3,11 @@
     <div id="drag-container">
       <div id="spin-container">
         <!-- Add your images (or video) here -->
-        <img
-          src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-          draggable="false" alt="">
+        <NuxtLink to="/blog">
+          <img
+              src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              draggable="false" alt="">
+        </NuxtLink>
         <img
           src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
           draggable="false" alt="">

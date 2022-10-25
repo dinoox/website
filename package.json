@@ -14,9 +14,12 @@
     "vite-plugin-string": "^1.1.2"
   },
   "dependencies": {
+    "@types/marked": "^4.0.7",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.2.0",
     "gsap": "^3.11.0",
+    "highlight.js": "^11.6.0",
+    "marked": "^4.1.1",
     "three": "^0.143.0"
   }
 }
